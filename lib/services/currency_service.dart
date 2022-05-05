@@ -27,8 +27,9 @@ class CurrencyService{
   }
 
   static putData(List<CurrencyModel> data)async{
+    await box!.clear();
     for(var item in data){
-      box!.add(item);
+      await box!.add(item);
     }
   }
 

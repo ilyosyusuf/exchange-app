@@ -3,6 +3,8 @@ import 'dart:ffi';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:oneapp/screens/box_page.dart';
+import 'package:oneapp/screens/nointernetscreen/nointernet.dart';
 
 class BaseView<T> extends StatefulWidget {
   final T? viewModel;
@@ -42,7 +44,7 @@ class BaseView<T> extends StatefulWidget {
   @override
   Widget build(BuildContext context) {
     return internetStatus == ConnectivityResult.none ? 
-    Scaffold(appBar: AppBar(title: Text("No Internet"))): widget.OnPageBuilder!(context, widget.viewModel);
+    BoxPage(): widget.OnPageBuilder!(context, widget.viewModel);
   }
   
   @override
