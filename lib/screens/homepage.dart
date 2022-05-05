@@ -25,7 +25,7 @@ class HomePage extends StatelessWidget {
                 flex: 9,
                 child: FutureBuilder(
                   future: CurrencyService.getCurrencies(),
-                  builder: (context, AsyncSnapshot<List<CurrencyModel>> snap){
+                  builder: (context, AsyncSnapshot<List<CurrencyModel>?> snap){
                     if (!snap.hasData) {
                       return Center(child: CircularProgressIndicator.adaptive(),);
                     } else if(snap.hasError){

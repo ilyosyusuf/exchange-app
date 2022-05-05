@@ -10,12 +10,15 @@ import 'package:path_provider/path_provider.dart';
 class CurrencyService{
   static Box<CurrencyModel>? box;
 
-  static Future<List<CurrencyModel>> getCurrencies()async{
+  static Future<List<CurrencyModel>?> getCurrencies()async{
+    try {
     Response res = await Dio().get('https://nbu.uz/en/exchange-rates/json/');
     List<CurrencyModel> d = (res.data as List).map((e) => CurrencyModel.fromJson(e)).toList();
     await putData(d);
-
     return d;
+    } catch (e) {
+      print(e);
+    }
   }
 
 
